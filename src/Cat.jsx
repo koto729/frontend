@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.css';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import Header from './Header/header';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,17 +21,27 @@ function Cat() {
     fetchCats();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
+
+  
   return (
     <Container>
-      <h2>Cats</h2>
+    <Header />
+      <h2>Animals for Adoption</h2>
       <Row>
         {cats.map((cat) => (
           <Col key={cat._id} md={4} className="mb-4">
             <Card>
               <Card.Img variant="top" src={cat.image} />
               <Card.Body>
-                <Card.Title>{cat.name}</Card.Title>
-                <Link to={`/cat/${cat._id}`} className="btn btn-primary">View Details</Link>
+                <Card.Text>Name: {cat.name}</Card.Text>
+                <Card.Text>Breed: {cat.breed}</Card.Text>
+                <Card.Text>Birthday: {formatDate(cat.birthday)}</Card.Text>
+                <Card.Text>center: {cat.center}</Card.Text>
+                <Link to={`/cats/${cat._id}`} className="btn btn-primary">View Details</Link>
               </Card.Body>
             </Card>
           </Col>

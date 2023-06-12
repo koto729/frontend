@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Form, Button, Alert } from 'react-bootstrap';
+import Header from './Header/header';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -15,10 +16,11 @@ function Login() {
 
     try {
       const response = await axios.post('https://backend.koto123.repl.co/api/login', { email, password });
-      const token = response.data;
+      const { token, role } = response.data;
 
       // Store the token in local storage
       localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
 
       // Set isLoggedIn to true
       setIsLoggedIn(true);
@@ -34,6 +36,7 @@ function Login() {
 
   return (
     <div className="container">
+      <Header />
       <h2>Login</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleLogin}>

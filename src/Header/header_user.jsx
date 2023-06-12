@@ -8,17 +8,14 @@ function Header() {
       <Navbar.Brand href="/cats">The Pet Shelter</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav">
-        <Nav className="me-auto">
+        <Nav className="ml-auto">
           <Nav.Link href="/cats">Home</Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/cats">Favourites</Nav.Link>
+          <Nav.Link href="/cats">Message</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
 }
 
-export default Header;
-
-
+export default Header_user;
