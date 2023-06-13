@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
-import Header from './Header/header';
 import axios from 'axios';
 
 function CatDetail() {
@@ -37,7 +36,6 @@ function CatDetail() {
 
   return (
     <Container>
-      <Header />
       <h2>Cat Details</h2>
       <Card>
         <Card.Img variant="top" src={cat.image} />

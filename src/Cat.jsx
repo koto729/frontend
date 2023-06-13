@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Card, Col, Container, Row, Form } from 'react-bootstrap';
-import Header from './Header/header';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -51,7 +50,6 @@ function Cat() {
   
   return (
     <Container>
-    <Header />
       <h2>Animals for Adoption</h2>
       <Form>
       <Row>
