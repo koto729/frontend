@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
+
 function Header_worker() {
   const history = useHistory();
 
@@ -21,7 +22,7 @@ function Header_worker() {
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/cats">Home</Nav.Link>
           <Nav.Link as={Link} to="/cats">Edit New Cat</Nav.Link>
-          <Nav.Link as={Link} to="/cats">ADD New Cat</Nav.Link>
+          <Nav.Link as={Link} to="/addcat">ADD New Cat</Nav.Link>
           <Nav.Link as={Link} to="/cats">Message</Nav.Link>
         </Nav>
         <Button variant="outline-primary" onClick={handleLogout}>Logout</Button>

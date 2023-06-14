@@ -3,8 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { useHistory, Redirect } from 'react-router-dom';
+import { getUserDetails } from './Checkuser';
+import jwt_decode from 'jwt-decode';
 
-function Login({ setIsLoggedIn, setRole, isLoggedIn }) {
+function Login( {setIsLoggedIn, setRole, isLoggedIn} ) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,21 +17,31 @@ function Login({ setIsLoggedIn, setRole, isLoggedIn }) {
 
     try {
       const response = await axios.post('https://backend.koto123.repl.co/api/login', { email, password });
-      const { token, role } = response.data;
+      console.log('Response:', response);
+      const token = response.data;
 
       // Store the token and role in local storage
       localStorage.setItem('token', token);
-      localStorage.setItem('role', role);
 
+    // Get the user details using the userId
+      const decodedToken = jwt_decode(token);
+      console.log(token);
+      console.log(decodedToken._id);
+      const userDetails = await getUserDetails(decodedToken._id, token);
+      const role = userDetails.role;
+      console.log('Role:', role);
+      
       // Set isLoggedIn and role
       setIsLoggedIn(true);
       setRole(role);
       console.log('Login successful!');
       history.push('/cats');
     } catch (error) {
+      console.log('Login unsuccessful!');
       setError(error.response.data);
     }
   };
+
 
   if (isLoggedIn) {
     return <Redirect to="/cats" />;

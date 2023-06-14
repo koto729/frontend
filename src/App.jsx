@@ -6,6 +6,7 @@ import Header_public from './Header/header_user';
 import Header_worker from './Header/header_worker';
 import Cat from './Cat';
 import CatDetail from './CatDetail';
+import AddCat from './AddCat';
 
 function HeaderWrapper({ isLoggedIn, role }) {
   if (isLoggedIn) {
@@ -20,28 +21,22 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const userRole = localStorage.getItem('role');
     setIsLoggedIn(!!token);
-    setRole(userRole || '');
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    setIsLoggedIn(false);
-    setRole('');
-  };
+
 
   return (
     <Router>
       <HeaderWrapper isLoggedIn={isLoggedIn} role={role} />
       <Switch>
-        <Route exact path="/" component={Cat} />
+        <Route exact path="/" component={AddCat} />
         <Route exact path="/cats" component={Cat} />
         <Route path="/login">
           {isLoggedIn ? <Redirect to="/cats" /> : <Login setIsLoggedIn={setIsLoggedIn} setRole={setRole} />}
         </Route>
         <Route path="/cats/:id" component={CatDetail} />
+        <Route path="/addcat" component={AddCat} />
       </Switch>
     </Router>
   );
