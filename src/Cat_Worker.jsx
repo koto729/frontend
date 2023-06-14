@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Card, Col, Container, Row, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header/header';
+import Header_worker from './Header/header_worker';
 
 function Cat() {
   const [cats, setCats] = useState([]);
@@ -51,7 +51,7 @@ function Cat() {
   
   return (
     <Container>
-      < Header />
+      <Header_worker/>
       <h2>Animals for Adoption</h2>
       <Form>
       <Row>
@@ -96,5 +96,3 @@ function Cat() {
 }
 
 export default Cat;
-
-

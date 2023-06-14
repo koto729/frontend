@@ -8,8 +8,8 @@ function Header_user() {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.reload();
-    history.push('/login');
+    //window.location.reload();
+    history.push('/');
   };
 
   return (

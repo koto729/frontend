@@ -10,8 +10,8 @@ function Header_worker() {
   const handleLogout = () => {
     // Clear the localStorage and redirect to the login page
     localStorage.clear();
-    window.location.reload();
-    history.push('/login');
+    //window.location.reload();
+    history.push('/');
   };
   
   return (

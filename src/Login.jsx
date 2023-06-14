@@ -5,8 +5,10 @@ import axios from 'axios';
 import { useHistory, Redirect } from 'react-router-dom';
 import { getUserDetails } from './Checkuser';
 import jwt_decode from 'jwt-decode';
+import Header from './Header/header';
 
-function Login( {setIsLoggedIn, setRole, isLoggedIn} ) {
+
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -32,10 +34,14 @@ function Login( {setIsLoggedIn, setRole, isLoggedIn} ) {
       console.log('Role:', role);
       
       // Set isLoggedIn and role
-      setIsLoggedIn(true);
-      setRole(role);
       console.log('Login successful!');
-      history.push('/cats');
+      if (role === 'charityWorker') {
+        history.push('/worker');
+      } else if (role === 'public'){
+        history.push('/public');
+      }else{
+        history.push('/cats');
+      }
     } catch (error) {
       console.log('Login unsuccessful!');
       setError(error.response.data);
@@ -43,12 +49,10 @@ function Login( {setIsLoggedIn, setRole, isLoggedIn} ) {
   };
 
 
-  if (isLoggedIn) {
-    return <Redirect to="/cats" />;
-  }
 
   return (
     <div className="container">
+      <Header />
       <h2>Login</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleLogin}>

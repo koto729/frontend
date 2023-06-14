@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import Header_worker from './Header/header_worker';
 
 function AddCat() {
   const [name, setName] = useState('');
@@ -59,6 +60,7 @@ function AddCat() {
 
   return (
     <div className="container">
+      <Header_worker/>
       <h2>Add New Cat</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleAddCat}>
