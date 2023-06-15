@@ -16,12 +16,12 @@ function Header_worker() {
   
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/cats">The Pet Shelter</Navbar.Brand>
+      <Navbar.Brand href="/worker">The Pet Shelter</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/cats">Home</Nav.Link>
-          <Nav.Link as={Link} to="/cats">Edit New Cat</Nav.Link>
+          <Nav.Link as={Link} to="/worker">Home</Nav.Link>
+          <Nav.Link as={Link} to="/worker">Edit New Cat</Nav.Link>
           <Nav.Link as={Link} to="/addcat">ADD New Cat</Nav.Link>
           <Nav.Link as={Link} to="/cats">Message</Nav.Link>
         </Nav>

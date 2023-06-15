@@ -66,8 +66,7 @@ function Cat() {
             <Form.Label>Center:</Form.Label>
             <Form.Control as="select" value={centerFilter} onChange={handleCenterChange}>
               <option value="">All Centers</option>
-              <option value="HKCentre">Hong Kong Center</option>
-              <option value="Example Centre">Kowloon Center</option>
+              <option value="Kowloon Centre">Kowloon Center</option>
               <option value="Sha Tin Center">Sha Tin Center</option>
             </Form.Control>
           </Form.Group>

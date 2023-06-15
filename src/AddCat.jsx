@@ -18,7 +18,7 @@ function AddCat() {
 
     const catData = {
       name,
-      image: image.name,
+      image: image,
       breed,
       gender,
       microchipNo,
@@ -40,7 +40,7 @@ function AddCat() {
           console.log('Cat added successfully');
           // Clear the form fields
           setName('');
-          setImage(null);
+          setImage('');
           setBreed('');
           setGender('male');
           setMicrochipNo('');
@@ -70,7 +70,7 @@ function AddCat() {
         </Form.Group>
         <Form.Group controlId="formImage">
           <Form.Label>Image:</Form.Label>
-          <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} required />
+          <Form.Control type="text" value={image} onChange={(e) => setImage(e.target.value)} required />
         </Form.Group>
         <Form.Group controlId="formBreed">
           <Form.Label>Breed:</Form.Label>
@@ -93,7 +93,10 @@ function AddCat() {
         </Form.Group>
         <Form.Group controlId="formCenter">
           <Form.Label>Center:</Form.Label>
-          <Form.Control type="text" value={center} onChange={(e) => setCenter(e.target.value)} required />
+          <Form.Control as="select" value={center} onChange={(e) => setCenter(e.target.value)} required >
+            <option value="Kowloon Centre">Kowloon Centre</option>
+            <option value="Sha Tin Center">Sha Tin Center</option>
+          </Form.Control>
         </Form.Group>
         <Form.Group controlId="formIntroduction">
           <Form.Label>Introduction:</Form.Label>
