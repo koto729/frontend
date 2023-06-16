@@ -4,7 +4,7 @@ import Header_worker from './Header/header_worker';
 
 function AddCat() {
   const [name, setName] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
   const [breed, setBreed] = useState('');
   const [gender, setGender] = useState('male');
   const [microchipNo, setMicrochipNo] = useState('');

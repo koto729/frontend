@@ -9,6 +9,7 @@ import CatDetail from './CatDetail';
 import AddCat from './AddCat';
 import Public from './Cat_Public';
 import Worker from './Cat_Worker';
+import EditCat from './EditCat';
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/worker" component={Worker} />
         <Route path="/cats/:id" component={CatDetail} />
         <Route path="/addcat" component={AddCat} />
+        <Route path="/edit/:id" component={EditCat} />
       </Switch>
     </Router>
   );
