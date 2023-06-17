@@ -84,7 +84,7 @@ function Cat() {
                 <Card.Text>Breed: {cat.breed}</Card.Text>
                 <Card.Text>Birthday: {formatDate(cat.birthday)}</Card.Text>
                 <Card.Text>center: {cat.center}</Card.Text>
-                <Link to={`/cats/${cat._id}`} className="btn btn-primary">View Details</Link>
+                <Link to={`/cat_user/${cat._id}`} className="btn btn-primary">View Details</Link>
               </Card.Body>
             </Card>
           </Col>

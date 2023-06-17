@@ -21,7 +21,6 @@ function Header_worker() {
       <Navbar.Collapse id="navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/worker">Home</Nav.Link>
-          <Nav.Link as={Link} to="/worker">Edit New Cat</Nav.Link>
           <Nav.Link as={Link} to="/addcat">ADD New Cat</Nav.Link>
           <Nav.Link as={Link} to="/cats">Message</Nav.Link>
         </Nav>

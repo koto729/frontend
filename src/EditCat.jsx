@@ -8,6 +8,7 @@ function CatDetail() {
   const history = useHistory();
   const [cat, setCat] = useState(null);
   const [name, setName] = useState('');
+  const [image, setImage] = useState('');
   const [breed, setBreed] = useState('');
   const [gender, setGender] = useState('');
   const [microchipNo, setMicrochipNo] = useState('');
@@ -22,6 +23,7 @@ function CatDetail() {
         const response = await axios.get(`https://backend.koto123.repl.co/api/cats/${id}`);
         setCat(response.data);
         setName(response.data.name);
+        setImage(response.data.image);
         setBreed(response.data.breed);
         setGender(response.data.gender);
         setMicrochipNo(response.data.microchipNo);
@@ -56,6 +58,7 @@ const formatDate = (dateString) => {
     try {
       const updatedCat = {
         name,
+        image,
         breed,
         gender,
         microchipNo,
@@ -120,6 +123,11 @@ const formatDate = (dateString) => {
               <Form.Label>Name:</Form.Label>
               <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} required />
             </Form.Group>
+            <Form.Group controlId="formImage">
+              <Form.Label>Image:</Form.Label>
+              <Form.Control type="text" value={image} onChange={(e) => setImage(e.target.value)} required />
+            </Form.Group>
+            <small>e.g.:https://drive.google.com/uc?export=view&id=1zmxP3f0IzNcOa15rnDM7H7zpP8R98lql</small>
             <Form.Group controlId="formBreed">
               <Form.Label>Breed:</Form.Label>
               <Form.Control type="text" value={breed} onChange={(e) => setBreed(e.target.value)} required />
@@ -151,13 +159,15 @@ const formatDate = (dateString) => {
               <Form.Label>Introduction:</Form.Label>
               <Form.Control as="textarea" rows={3} value={introduction} onChange={(e) => setIntroduction(e.target.value)} required />
             </Form.Group>
+            <br />
             <Button variant="primary" type="submit">
               Update Cat
             </Button>
             <Button variant="danger" onClick={handleDeleteCat}>
               Delete Cat
-            </Button>
+            </Button> 
           </Form>
+          <br />
           <Button variant="primary" onClick={handleBack}>Back</Button>
         </Card.Body>
       </Card>

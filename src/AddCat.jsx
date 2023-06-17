@@ -18,7 +18,7 @@ function AddCat() {
 
     const catData = {
       name,
-      image: image,
+      image,
       breed,
       gender,
       microchipNo,
@@ -26,6 +26,7 @@ function AddCat() {
       center,
       introduction
     };
+    console.log(JSON.stringify(catData));
 
     fetch('https://backend.koto123.repl.co/api/addcat', {
       method: 'POST',
@@ -72,6 +73,7 @@ function AddCat() {
           <Form.Label>Image:</Form.Label>
           <Form.Control type="text" value={image} onChange={(e) => setImage(e.target.value)} required />
         </Form.Group>
+        <small>e.g.:https://drive.google.com/uc?export=view&id=1zmxP3f0IzNcOa15rnDM7H7zpP8R98lql</small>
         <Form.Group controlId="formBreed">
           <Form.Label>Breed:</Form.Label>
           <Form.Control type="text" value={breed} onChange={(e) => setBreed(e.target.value)} required />

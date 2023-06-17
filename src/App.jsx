@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './Login';
-import Header from './Header/header';
-import Header_public from './Header/header_user';
-import Header_worker from './Header/header_worker';
 import Cat from './Cat';
 import CatDetail from './CatDetail';
 import AddCat from './AddCat';
 import Public from './Cat_Public';
 import Worker from './Cat_Worker';
 import EditCat from './EditCat';
+import AddFavoriteCat from './AddFavoriteCat';
+import FavoriteList from './FavoriteList';
 
 
 
@@ -26,6 +25,8 @@ function App() {
         <Route path="/cats/:id" component={CatDetail} />
         <Route path="/addcat" component={AddCat} />
         <Route path="/edit/:id" component={EditCat} />
+        <Route path="/cat_user/:id" component={AddFavoriteCat} />
+        <Route path="/favoritelist" component={FavoriteList} />
       </Switch>
     </Router>
   );
