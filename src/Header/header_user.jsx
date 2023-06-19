@@ -22,7 +22,7 @@ function Header_user() {
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/public">Home</Nav.Link>
           <Nav.Link as={Link} to="/favoritelist">Favourites</Nav.Link>
-          <Nav.Link as={Link} to="/public">Message</Nav.Link>
+          <Nav.Link as={Link} to="/message">Message</Nav.Link>
         </Nav>
         <Button variant="outline-primary" onClick={handleLogout}>
           Logout

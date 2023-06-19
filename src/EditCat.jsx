@@ -97,13 +97,11 @@ const formatDate = (dateString) => {
       if (response.status === 200) {
         console.log('Cat deleted successfully');
         history.goBack();
-        // Redirect to the cat list page or perform any other desired action
       } else {
         throw new Error('Failed to delete cat');
       }
     } catch (error) {
       console.error(error);
-      // Optionally, show an error message
     }
   };
 

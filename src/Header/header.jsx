@@ -15,6 +15,10 @@ function Header() {
         <Nav>
           <Nav.Link as={Link} to="/login">Login</Nav.Link>
         </Nav>
+        
+        <Nav>
+          <Nav.Link as={Link} to="/register">Register</Nav.Link>
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   );

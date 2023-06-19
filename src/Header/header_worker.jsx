@@ -22,7 +22,7 @@ function Header_worker() {
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/worker">Home</Nav.Link>
           <Nav.Link as={Link} to="/addcat">ADD New Cat</Nav.Link>
-          <Nav.Link as={Link} to="/cats">Message</Nav.Link>
+          <Nav.Link as={Link} to="/message_worker">Message</Nav.Link>
         </Nav>
         <Button variant="outline-primary" onClick={handleLogout}>Logout</Button>
       </Navbar.Collapse>

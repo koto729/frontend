@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { FaHeart } from 'react-icons/fa';
@@ -33,6 +33,43 @@ function AddFavoriteCat() {
 
     fetchCat();
   }, [id]);
+
+  const handleCreateChatroom = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.post(
+        'https://backend.koto123.repl.co/api/addchatrooms',
+        {
+          userId: decodedToken._id,
+          center: cat.center,
+          catId: id,
+        },
+        {
+          headers: {
+            'auth-token': token,
+          },
+        }
+      );
+      const messageResponse = await axios.post(
+        'https://backend.koto123.repl.co/api/messages',
+        {
+          chatroomId: response.data._id, 
+          userId: decodedToken._id,
+          message: 'I want Adoption this cat',
+        },
+        {
+          headers: {
+            'auth-token': token,
+          },
+        }
+      );
+      console.log('New message created:', messageResponse.data);
+
+      return <Link to="/message">Go to Messages</Link>;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleFavorite = async () => {
     try {
@@ -88,6 +125,11 @@ function AddFavoriteCat() {
             )}
           </Button>
           </h3>
+          <br/>
+          <Button variant="primary" onClick={handleCreateChatroom}>
+            Adoption
+          </Button>
+          <br/>
           <br/>
           <Button variant="primary" onClick={handleBack}>           
             Back

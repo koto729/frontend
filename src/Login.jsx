@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Alert } from 'react-bootstrap';
+import { FaEnvelope, FaLock} from 'react-icons/fa';
 import axios from 'axios';
 import { useHistory, Redirect } from 'react-router-dom';
 import { getUserDetails } from './Checkuser';
@@ -56,11 +57,13 @@ function Login() {
       <h2>Login</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleLogin}>
+        <FaEnvelope className="form-icon" />
         <Form.Group controlId="formEmail">
           <Form.Label>Email:</Form.Label>
           <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </Form.Group>
         <Form.Group controlId="formPassword">
+          <FaLock className="form-icon" />
           <Form.Label>Password:</Form.Label>
           <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </Form.Group>
